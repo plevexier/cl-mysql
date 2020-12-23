@@ -86,8 +86,8 @@
 
 (defmethod connect-to-server ((self connection-pool))
   "Create a new single connection and add it to the pool."
-  (mysql-library-init 0 (null-pointer) (null-pointer))
-  (let* ((mysql (mysql-init (null-pointer)))
+  (let* ((res (mysql-library-init 0 (null-pointer) (null-pointer)))
+	 (mysql (mysql-init (null-pointer)))
 	 (connection (mysql-real-connect mysql
 					 (or (hostname self) "localhost")
 					 (or (username self) (null-pointer))

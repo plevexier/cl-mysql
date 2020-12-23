@@ -185,7 +185,7 @@
     "Compile the library with this value equal to T to get the indirection
    facility.   For more performance (because there is no wrapper around
    the CFFI wrapper!) set this value to NIL")
-  (defparameter *mysql-dev-api-url* "http://dev.mysql.com/doc/refman/5.0/en/~A.html"
+  (defparameter *mysql-dev-api-url* "https://dev.mysql.com/doc/c-api/8.0/en/~A.html"
     "MySQL uses a standard page naming convention that matches our function names!"))
 
 (defmacro defmysqlfun ((name internal-name) return-type &body args)
