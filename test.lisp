@@ -32,8 +32,8 @@
 (in-root-suite)
 
 (defparameter *host* "localhost")
-(defparameter *user* nil)
-(defparameter *password* nil)
+(defparameter *user* "user1")
+(defparameter *password* "user1")
 
 (defsuite* test)
 
@@ -165,7 +165,7 @@
                                   mb, lb, tt, tx, mt, lt, en, st, ge, bg) 
           VALUES (b'100000', 255, -32768, 1, 4294967295, 18446744073709551615,  999.9999, 12312312.12, SQRT(2.0), 1.0/9.0, 1.0/9.0,
                   '2009-12-31 00:00:00', '2009-12-31', '00:00:00', 2009, 'TEST1', 'TEST2', 'TEST3', 'TEST4', 'TEST5', 'TEST6', 
-                  'TEST7', 'TEST8', 'TEST9', 'TEST10', 'TEST11', 'TEST12', 'small','one,two',GeomFromText('POINT(1 1)'),
+                  'TEST7', 'TEST8', 'TEST9', 'TEST10', 'TEST11', 'TEST12', 'small','one,two',ST_GeomFromText('POINT(1 1)'),
                   12345678901234567890123456789012345678901234567890123456789012345)")
   ;; Now confirm that the decoding via the type-maps is as we expect ... this
   ;; pretty much completes our integration test at a broad level

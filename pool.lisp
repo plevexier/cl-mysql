@@ -86,6 +86,7 @@
 
 (defmethod connect-to-server ((self connection-pool))
   "Create a new single connection and add it to the pool."
+  (mysql-library-init 0 (null-pointer) (null-pointer))
   (let* ((mysql (mysql-init (null-pointer)))
 	 (connection (mysql-real-connect mysql
 					 (or (hostname self) "localhost")
@@ -108,7 +109,8 @@
   "Internal method.   Pool should be locked before-hand. "
   (remove-connection-from-array self (available-connections self) conn)
   (remove-connection-from-array self (connections self) conn)
-  (mysql-close (pointer conn)))
+  (mysql-close (pointer conn))
+  (mysql-library-end))
 
 (defmethod count-connections ((self connection-pool))
   "Count the number of connections in the pool.   If you are dynamically 

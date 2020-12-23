@@ -230,6 +230,13 @@
 (defmysqlfun ("mysql_init" mysql-init) :pointer
   (mysql :pointer))
 
+(defmysqlfun ("mysql_library_init" mysql-library-init) :int
+  (argc :int)
+  (argv :pointer)
+  (groups :pointer))
+
+(defmysqlfun ("mysql_library_end" mysql-library-end) :void)
+
 (defmysqlfun ("mysql_close" mysql-close) :pointer
   (mysql :pointer))
 
